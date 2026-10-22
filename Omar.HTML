@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="Omar Ibrahim Hassan — Computer Science student at Alexandria National University">
+<title>Omar Ibrahim Hassan | Developer Portfolio</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--text:#edf2f8;--muted:#aab7c9;--line:#26354b;--accent:#78a9ff;--max:1080px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:20px}
+.brand{font-weight:800;letter-spacing:-.035em;font-size:1.08rem}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:.92rem}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:8px 13px;border:1px solid #405878;border-radius:8px;color:var(--text)!important}
+.menu-toggle{display:none;color:var(--text);background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.hero{min-height:610px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:55px;padding-block:80px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#b9d2ff;font-size:.88rem}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#80c6a2}
+h1{font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-.065em;line-height:1.06;margin:20px 0}
+.gradient{color:var(--accent)}
+.hero-copy>p{color:var(--muted);max-width:600px;font-size:1.08rem}
+.hero-copy>p strong{color:var(--text)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:8px;font-weight:700;border:1px solid var(--line);transition:background .2s,border-color .2s;font-size:.94rem}
+.btn:hover{border-color:#6887b4}
+.btn-primary{color:#091321;background:var(--accent);border-color:var(--accent)}
+.btn-primary:hover{background:#9bc0ff}
+.btn-secondary{background:transparent;color:var(--text)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:27px;color:var(--muted);font-size:.85rem}
+.hero-meta span{display:flex;align-items:center;gap:8px}
+.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.code-window{width:min(390px,100%);border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#0e1726;box-shadow:0 24px 55px #0002}
+.window-top{display:flex;align-items:center;gap:7px;padding:13px 15px;border-bottom:1px solid var(--line);background:#ffffff03}
+.window-dot{width:8px;height:8px;border-radius:50%;background:#53657d}
+.window-name{margin-left:auto;color:#8494aa;font:11px ui-monospace,monospace}
+.code-body{padding:22px 18px;font:500 clamp(10px,1.1vw,13px)/2 ui-monospace,monospace;color:#d7e0ed;white-space:pre-wrap}
+.pink{color:#d6a8ff}.cyan{color:#9dc3ff}.yellow{color:#d9e5a8}.blue{color:#91b9ff}
+section{padding-block:70px}
+.section-head{margin-bottom:28px}
+.kicker{color:#9fc0f6;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800}
+h2.section-title{font-size:clamp(1.8rem,3.4vw,2.55rem);line-height:1.2;letter-spacing:-.045em;margin:8px 0 12px}
+.section-intro{color:var(--muted);max-width:720px;margin:0}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:#405b80}
+.card h3{margin:0 0 8px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted)}
+.card-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#1b2a40;color:#a8c9ff;margin-bottom:15px;font-size:1.1rem}
+.timeline{border-left:1px solid #405878;margin-left:8px;padding-left:23px}
+.timeline-item{position:relative;padding-bottom:4px}
+.timeline-item:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;left:-28px;top:9px;background:var(--accent)}
+.timeline-item .date{color:#a9c7f8;font-size:.83rem;font-weight:750}
+.timeline-item h3{margin:6px 0;font-size:1.15rem}
+.timeline-item p{color:var(--muted);margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.tag{border:1px solid #31445e;background:#0e1726;color:#d7e3f5;padding:6px 10px;border-radius:7px;font-size:.84rem}
+.project-card{display:flex;flex-direction:column;min-height:220px}
+.project-type{color:#a9c7f8;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:8px}
+.project-card p{flex:1}
+.project-note{font-size:.82rem;color:#8fa0b7;margin-top:16px}
+.contact-panel{display:flex;align-items:center;justify-content:space-between;gap:25px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px}
+.contact-panel p{color:var(--muted);max-width:600px;margin-bottom:0}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85rem}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:40px;padding-block:65px}.hero-visual{justify-content:flex-start}.code-window{max-width:500px}.nav-links{gap:15px}.contact-panel{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.container{width:min(var(--max),calc(100% - 30px))}.nav{min-height:64px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;left:15px;right:15px;top:64px;flex-direction:column;align-items:stretch;gap:0;padding:8px;background:#111c2e;border:1px solid var(--line);border-radius:10px}.nav-links.open{display:flex}.nav-links a{padding:12px}.nav-cta{text-align:center}.hero{min-height:auto;padding-block:60px 45px}h1{font-size:clamp(2.65rem,13vw,4.2rem)}section{padding-block:54px}.grid-2{grid-template-columns:1fr}.card{padding:21px}.contact-panel{padding:23px}.hero-meta{gap:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="ambient" aria-hidden="true"></div>
+<div class="code-rain" id="codeRain" aria-hidden="true"></div>
+<div class="tech-orbs" id="techOrbs" aria-hidden="true"></div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">Omar<span>.</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">Menu ☰</button>
+  </div>
+</header>
+
+<main>
+<section class="container hero" id="home">
+  <div class="hero-copy">
+    <span class="eyebrow"><span class="status-dot"></span> Computer Science Student</span>
+    <h1>Omar Ibrahim<br><span class="gradient">Hassan</span></h1>
+    <p>I'm a <strong>Computer Science student</strong> at Alexandria National University, building my foundation in web development and software engineering — one project, one concept, and one line of code at a time.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#projects">Explore my work ↗</a>
+      <a class="btn btn-secondary" href="#contact">Connect with me</a>
+    </div>
+    <div class="hero-meta"><span><i></i> Alexandria, Egypt</span><span><i></i> Class of 2029</span><span><i></i> Always learning</span></div>
+  </div>
+
+  <div class="hero-visual" aria-label="Decorative code editor illustration">
+    <div class="code-window">
+      <div class="window-top"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-name">omar.dev — profile.js</span></div>
+      <div class="code-body"><span class="pink">const</span> <span class="cyan">developer</span> = {
+  <span class="blue">name</span>: <span class="yellow">"Omar Ibrahim Hassan"</span>,
+  <span class="blue">role</span>: <span class="yellow">"CS Student"</span>,
+  <span class="blue">university</span>: <span class="yellow">"Alexandria National"</span>,
+  <span class="blue">skills</span>: [
+    <span class="yellow">"HTML"</span>,
+    <span class="yellow">"CSS"</span>,
+    <span class="yellow">"JavaScript"</span>,
+    <span class="yellow">"React"</span>
+  ],
+  <span class="blue">mindset</span>: <span class="yellow">"Keep building."</span>
+};
+
+<span class="pink">while</span> (learning) {
+  <span class="cyan">buildSomethingGreat</span>();
+}</div>
+    </div>
+  </div>
+</section>
+
+<section class="container reveal" id="about">
+  <div class="section-head"><div class="kicker">01 / About me</div><h2 class="section-title">Curiosity turns into <span class="gradient">creation.</span></h2>
+    <p class="section-intro">I'm developing my computer science knowledge through university study and independent practice. I enjoy learning how the web works, understanding the logic behind interfaces, and turning concepts into useful digital experiences.</p></div>
+  <div class="grid-2">
+    <article class="card"><div class="card-icon">✳</div><h3>How I approach learning</h3><p>I focus on understanding fundamentals, practicing consistently, and learning from mistakes instead of simply copying code.</p></article>
+    <article class="card"><div class="card-icon">↗</div><h3>Where I'm heading</h3><p>My goal is to grow into a capable software developer, build a strong project portfolio, and prepare for real-world development opportunities.</p></article>
+  </div>
+</section>
+
+<section class="container reveal" id="education">
+  <div class="section-head"><div class="kicker">02 / Education</div><h2 class="section-title">The foundation.</h2></div>
+  <div class="card"><div class="timeline"><div class="timeline-item">
+    <span class="date">2025 — 2029 · Expected graduation</span>
+    <h3>Bachelor's Degree in Computer Science</h3>
+    <p>Alexandria National University · Alexandria, Egypt</p>
+    <p style="margin-top:10px">Second-year Computer Science student, developing a strong foundation in programming, software development, and computer science fundamentals.</p>
+  </div></div></div>
+</section>
+
+<section class="container reveal" id="skills">
+  <div class="section-head"><div class="kicker">03 / Skills</div><h2 class="section-title">Tools I'm learning to <span class="gradient">master.</span></h2>
+    <p class="section-intro">My current learning focus is front-end web development and the technologies used to build modern, responsive user interfaces.</p></div>
+  <div class="grid-2">
+    <article class="card"><div class="card-icon">⌘</div><h3>Front-end technologies</h3><p>Core tools for building websites and interactive user experiences.</p>
+      <div class="tags"><span class="tag html">HTML5</span><span class="tag css">CSS3</span><span class="tag js">JavaScript</span><span class="tag react">React</span></div>
+    </article>
+    <article class="card"><div class="card-icon">◇</div><h3>Developer fundamentals</h3><p>Foundational habits and concepts that support long-term growth.</p>
+      <div class="tags"><span class="tag">Problem Solving</span><span class="tag">Programming Logic</span><span class="tag">Responsive Design</span><span class="tag">Continuous Learning</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="container reveal" id="projects">
+  <div class="section-head"><div class="kicker">04 / Projects</div><h2 class="section-title">Learning by <span class="gradient">building.</span></h2>
+    <p class="section-intro">A growing collection of practical work. Replace or expand these cards as you finish projects and publish them online.</p></div>
+  <div class="grid-2">
+    <article class="card project-card"><div class="project-type">01 · Web development</div><h3>Personal CV & Portfolio</h3><p>A responsive portfolio website using HTML, CSS, and JavaScript, featuring animated visuals, a code-inspired design, and mobile-friendly navigation.</p><div class="project-note">Built with HTML · CSS · JavaScript</div></article>
+    <article class="card project-card"><div class="project-type">02 · Programming practice</div><h3>Java Practice Projects</h3><p>Small programming exercises and projects designed to strengthen logic, programming fundamentals, and object-oriented thinking.</p><div class="project-note">Add a repository link when your project is published.</div></article>
+  </div>
+</section>
+
+<section class="container reveal" id="contact">
+  <div class="contact-panel">
+    <div><div class="kicker">05 / Contact</div><h2 class="section-title">Let's build what's <span class="gradient">next.</span></h2>
+      <p>I'm always open to connecting with other learners, developers, and people who are passionate about technology. Find me on LinkedIn.</p></div>
+    <div class="actions"><a class="btn btn-primary" href="https://www.linkedin.com/in/omar-ibrahim-hassan-b044703a5/?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">Visit my LinkedIn ↗</a></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><span>© <span id="year"></span> Omar Ibrahim Hassan</span><span>Designed & coded with intention.</span></div></footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+} else {
+  document.querySelectorAll(".reveal").forEach(element => element.classList.add("visible"));
+}
+</script>
+</body>
+</html>
